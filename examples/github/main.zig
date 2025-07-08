@@ -33,7 +33,7 @@ pub fn main() !void {
     );
     defer github.deinit();
 
-    const result = github.send(
+    const result = github.sendAndParse(
         .{
             .query =
             \\query test {

@@ -138,14 +138,27 @@ pub const Client = struct {
         self.httpClient.deinit();
     }
 
-    /// Sends a GraphQL Request to a server
+    /// Sends a GraphQL Request to a server and parses the response
     ///
     /// Callers are expected to call `deinit()` on the Owned type returned to free memory.
-    pub fn send(
+    pub fn sendAndParse(
         self: *Self,
         request: Request,
         comptime T: type,
     ) RequestError!Owned(Response(T)) {
+        const body = try self.send(request);
+        defer self.allocator.free(body);
+        const parsed = parseResponse(self.allocator, body, T) catch return error.Deserialization; // This line invokes parseResponse within sendAndParse
+        return Owned(Response(T)).fromJson(parsed);
+    }
+
+    /// Sends a GraphQL Request to a server without parsing the response
+    ///
+    /// Callers are expected to call `alloc.free(body)` on the owned slice returned to free memory.
+    pub fn send(
+        self: *Self,
+        request: Request,
+    ) RequestError![]const u8 {
         const headers = std.http.Client.Request.Headers{
             .content_type = .{ .override = "application/json" },
             .authorization = if (self.options.authorization) |authz| .{
@@ -186,9 +199,7 @@ pub const Client = struct {
                     self.allocator,
                     8192 * 2 * 2, // note: optimistic arb choice of buffer size
                 ) catch unreachable;
-                defer self.allocator.free(body);
-                const parsed = parseResponse(self.allocator, body, T) catch return error.Deserialization;
-                return Owned(Response(T)).fromJson(parsed);
+                return body;
             },
         }
     }

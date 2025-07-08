@@ -1,3 +1,7 @@
+# 0.4.0
+
+The `send` function is now designed to return the raw body. A new function, `splitAndParse`, has been added to perform the previous `send` operation. Due to incompatible API changes, the version has been bumped from 0.3.0 to 0.4.0.
+
 # 0.3.0
 
 Upgrade to zig 0.14.1, current stable. Changes in the project definition (`build.zig.zon`) are incompatible with the previous version, resulting in a version bump from 0.2.2 to 0.3.0.

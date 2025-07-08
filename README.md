@@ -102,7 +102,7 @@ Create a `build.zig.zon` file to declare a dependency
 Starting in zig `0.12.0`, you can use
 
 ```sh
-zig fetch --save https://github.com/softprops/zig-graphql/archive/refs/tags/v0.2.2.tar.gz
+zig fetch --save https://github.com/softprops/zig-graphql/archive/refs/tags/v0.4.0.tar.gz
 ```
 
 to manually add it as follows
@@ -115,7 +115,7 @@ to manually add it as follows
         // 👇 declare dep properties
         .graphql = .{
             // 👇 uri to download
-            .url = "https://github.com/softprops/zig-graphql/archive/refs/tags/v0.3.0.tar.gz",
+            .url = "https://github.com/softprops/zig-graphql/archive/refs/tags/v0.4.0.tar.gz",
             // 👇 hash verification
             .hash = "{current-hash-here}",
         },
