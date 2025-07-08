@@ -8,7 +8,7 @@
 
 ---
 
-[![ci](https://github.com/softprops/zig-graphql/actions/workflows/ci.yml/badge.svg)](https://github.com/softprops/zig-graphql/actions/workflows/ci.yml) ![License Info](https://img.shields.io/github/license/softprops/zig-graphql) ![Releases](https://img.shields.io/github/v/release/softprops/zig-graphql) [![Zig Support](https://img.shields.io/badge/zig-0.13.0-black?logo=zig)](https://ziglang.org/documentation/0.13.0/)
+[![ci](https://github.com/softprops/zig-graphql/actions/workflows/ci.yml/badge.svg)](https://github.com/softprops/zig-graphql/actions/workflows/ci.yml) ![License Info](https://img.shields.io/github/license/softprops/zig-graphql) ![Releases](https://img.shields.io/github/v/release/softprops/zig-graphql) [![Zig Support](https://img.shields.io/badge/zig-0.14.1-black?logo=zig)](https://ziglang.org/documentation/0.14.1/)
 
 ## examples
 
@@ -115,7 +115,7 @@ to manually add it as follows
         // 👇 declare dep properties
         .graphql = .{
             // 👇 uri to download
-            .url = "https://github.com/softprops/zig-graphql/archive/refs/tags/v0.2.2.tar.gz",
+            .url = "https://github.com/softprops/zig-graphql/archive/refs/tags/v0.3.0.tar.gz",
             // 👇 hash verification
             .hash = "{current-hash-here}",
         },

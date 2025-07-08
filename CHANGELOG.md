@@ -1,3 +1,7 @@
+# 0.3.0
+
+Upgrade to zig 0.14.1, current stable. Changes in the project definition (`build.zig.zon`) are incompatible with the previous version, resulting in a version bump from 0.2.2 to 0.3.0.
+
 # 0.2.2
 
 Upgrade to zig 0.13.0, current stable. No breaking changes.
